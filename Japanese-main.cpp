@@ -9,43 +9,21 @@ int main() {
   int Answer;
   int Input;
   std::random_device Random;
-  std::default_random_engine Engine(Random);
-  std::uniform_int_distribution<int> Distribution(1, 9);
+  std::default_random_engine Engine(Random());
+  std::uniform_int_distribution<> Distribution(1, 9);
 
   while (true) {
     RightNumber = Distribution(Engine);
     LeftNumber = Distribution(Engine);
     Answer = LeftNumber * RightNumber;
-    std::cout << LeftNumber << " X " << RightNumber << " = ?\n" << ">>> " << std::endl;
+    std::cout << LeftNumber << " X " << RightNumber << " = ?\n" << ">>> ";
     std::cin >> Input;
     if (Input == Answer) {
-      std::cout << "\33[32m
-      #####################\n
-      #                   #\n
-      #             @@    #\n
-      #           @@      #\n
-      #   @@    @@        #\n
-      #    @@  @@         #\n
-      #     @@@	          #\n
-      #	                  #\n
-      #####################\n
-      \33[m" << "正解!" << std::endl;
+      std::cout << "\33[32m\n#####################\n#                   #\n#             @@    #\n#           @@      #\n#   @@    @@        #\n#    @@  @@         #\n#     @@@           #\n#                   #\n#####################\n \33[m" << "正解!" << std::endl;
     }
     else {
-      std::cout << "\33[31m
-      ######################\n
-      #  xx            xx  #\n
-      #    xx        xx    #\n
-      #      xx    xx      #\n
-      #         xx         #\n
-      #         xx         #\n
-      #      xx    xx      #\n
-      #    xx        xx    #\n
-      #  xx            xx  #\n
-      ######################\n
-      \33[m" << "残念!正解は" << Answer << "でした!\n" <<std::endl;
+      std::cout << "\33[31m\n######################\n#  xx            xx  #\n#    xx        xx    #\n#      xx    xx      #\n#         xx         #\n#         xx         #\n#      xx    xx      #\n#    xx        xx    #\n#  xx            xx  #\n######################\n \33[m" << "残念!正解は" << Answer << "でした!\n" << std::endl;
     }
   }
   return 0;
 }
-
